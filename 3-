@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+int occurrences_char(string str, int length, int n, char ch){
+   int count = 0;
+   for (int i = 0; i < length; i++){
+      if (str[i] == ch){
+         count++;
+      }
+   }
+   int occ = n / length;
+   count = count * occ;
+   for (int i = 0; i < n % length; i++){
+      if (str[i] == ch){
+         count++;
+      }
+   }
+   return count;
+}
+int main(){
+   string str = "TPTTTT";
+   char ch = 'T';
+   int n = 12;
+   int length = str.size();
+   cout<<"Count of occurrences of a character in a repeated string are: "<<occurrences_char(str, length,
+   n, ch);
+   return 0;
+}
